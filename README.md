@@ -1,0 +1,1 @@
+# vendor-qcom-opensource-data-ipa-cfg-mgr
