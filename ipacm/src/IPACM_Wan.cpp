@@ -2224,10 +2224,10 @@ int IPACM_Wan::handle_route_add_evt(ipa_ip_type iptype)
 			wanup_data->ipv4_addr = vlan_wan_ctx.wan_v4_addr;
 		}
 		else
+#endif
 		{
 			wanup_data->ipv4_addr = wan_v4_addr;
 		}
-#endif
 
 		wanup_data->backhaul_type = m_is_sta_mode;
 		IPACMDBG_H("Posting IPA_HANDLE_WAN_UP with below information:\n");
