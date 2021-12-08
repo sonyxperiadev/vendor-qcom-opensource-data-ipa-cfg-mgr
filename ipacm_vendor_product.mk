@@ -3,7 +3,6 @@ TARGET_DISABLE_IPACM := false
 #IPACM_DATA
 IPACM_DATA += IPACM_cfg.xml
 IPACM_DATA += ipacm
-IPACM_DATA += ipacm.rc
 
 ifeq ($(TARGET_USES_QMAA),true)
 ifneq ($(TARGET_USES_QMAA_OVERRIDE_DATA),true)
