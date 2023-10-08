@@ -37,7 +37,6 @@ cc_binary {
         "src/IPACM_LanToLan.cpp",
     ],
 
-    clang: true,
     vendor: true,
 
     shared_libs: [
@@ -67,5 +66,4 @@ prebuilt_etc {
     vendor: true,
     owner: "ipacm",
     src: "src/IPACM_cfg.xml",
-
 }
