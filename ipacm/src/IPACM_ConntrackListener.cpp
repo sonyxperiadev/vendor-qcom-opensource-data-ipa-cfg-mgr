@@ -71,6 +71,10 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 #include "IPACM_Wan.h"
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
+#ifndef IPA_HW_v5_5
+#define IPA_HW_v5_5  24
+#endif
+
 IPACM_ConntrackListener::IPACM_ConntrackListener()
 {
 	 IPACMDBG("\n");
