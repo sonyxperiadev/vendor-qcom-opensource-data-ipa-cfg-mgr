@@ -37,6 +37,7 @@ cc_binary {
         "src/IPACM_LanToLan.cpp",
     ],
 
+    init_rc: ["src/ipacm.rc"],
     vendor: true,
 
     shared_libs: [
