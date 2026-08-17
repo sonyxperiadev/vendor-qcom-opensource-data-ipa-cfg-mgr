@@ -800,14 +800,16 @@ bool IPACM_ConntrackListener::AddIface(
 					iptodot("AddIface(): Non Nat entry match with ip addr",
 							nonnat_iface_ipv4_addr[cnt]);
 
+#ifdef IPA_HW_v5_5
 					/* Ignoring Dummy NAT entry for non nat ifaces */
 					if (IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_v5_5) {
 						return false;
-					} else {
-						rule->private_ip = rule->public_ip;
-						rule->private_port = rule->public_port;
-						return true;
 					}
+#endif
+
+					rule->private_ip = rule->public_ip;
+					rule->private_port = rule->public_port;
+					return true;
 				}
 			}
 		}
@@ -1185,9 +1187,11 @@ bool IPACM_ConntrackListener::ProcessTCPorUDPMsg(
 			IPACMDBG("In STA mode, ignore connections destinated to STA interface\n");
 			goto IGNORE;
 		}
+#ifdef IPA_HW_v5_5
 		/* Suppressing NAT entry for Q6 WAN connections */
 		if (IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_v5_5)
 			goto IGNORE;
+#endif
 
 		IPACMDBG("For embedded connections add dummy nat rule\n");
 		IPACMDBG("Change private port %d to %d\n",
